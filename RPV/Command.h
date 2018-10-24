@@ -27,6 +27,9 @@ public:
 	Noun noun;
 
 	Verb verb;
+
+	std::string grm;
+
 	
 	bool isValid(Command cmd);
 	bool isValid(std::list<std::string> cmds);
