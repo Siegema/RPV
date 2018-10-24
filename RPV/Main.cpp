@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Commands.h"
+#include "Command.h"
 
 void ParseCmds(std::istream& cmds)
 { 
@@ -7,7 +7,7 @@ void ParseCmds(std::istream& cmds)
 	cmds.getline(input, 50);
 	//std::cout << input << std::endl;
 
-	Commands cmd(input);
+	Command cmd(input);
 }
 
 int main()
@@ -16,5 +16,5 @@ int main()
 
 	command = &ParseCmds;
 	
-	command(std::cin);
+	//command(std::cin);
 }
