@@ -1,7 +1,8 @@
-#ifndef COMMANDS_H
-#define COMMANDS_H
+#ifndef COMMAND_H
+#define COMMAND_H
 
 #include <list>
+#include "Execution.h"
 
 enum class Noun
 {
@@ -18,8 +19,10 @@ enum class Verb
 class Command
 {
 public:
+	Command();
 	Command(std::string);
-	~Command();
+	virtual ~Command();
+	virtual void execute() = 0;
 
 	static char const * const NounStrings[];
 	static char const * const VerbStrings[];
@@ -31,13 +34,13 @@ public:
 	std::string grm;
 
 	
-	bool isValid(Command cmd);
 	bool isValid(std::list<std::string> cmds);
 
 private:
 
+	friend Execution;
 };
 
 
-#endif // !COMMANDS_H
+#endif // !COMMAND_H
 
