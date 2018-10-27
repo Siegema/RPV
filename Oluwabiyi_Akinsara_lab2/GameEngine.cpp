@@ -13,7 +13,7 @@ GameEngine::GameEngine()
 GameEngine::~GameEngine()
 {
 	delete rSystem; 
-	delete fsSystem; 
+//	delete fsSystem; 
 	delete inManager; 
 	//delete assetManager; 
 	delete gObjManager;
@@ -52,8 +52,8 @@ void GameEngine::initialize()
 		rSystem->initialize(RenderSettingsElement);
 	}
 
-	fsSystem = new FileSystem();
-	fsSystem->initialize();
+
+	fsSystem->Instance.initialize();
 
 	inManager = new InputManager();
 	inManager->initialize();
@@ -75,7 +75,7 @@ void GameEngine::GameLoop()
 {
 	rSystem->update();
 
-	fsSystem->update();
+	fsSystem->Instance->update();
 
 	inManager->update();
 
@@ -88,7 +88,7 @@ void GameEngine::display()
 {
 	rSystem->display();
 
-	fsSystem->display();
+	fsSystem->Instance->display();
 
 	inManager->display();
 

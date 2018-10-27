@@ -1,19 +1,18 @@
-#include <iostream>
-#include <string>
-#include "Command.h"
-#include "InputHandler.h"
-
-void ParseCmds(std::istream& cmds)
-{ 
-//	char input[50];
-//	cmds.getline(input, 50);
-//	//std::cout << input << std::endl;
-//
-//	Command cmd(input);
-}
-
+#include "Game.h"
 
 int main()
 {
-	InputHandler::Instance().HandleInput(std::cin);
+	//InputHandler::Instance().HandleInput(std::cin);
+	Game game;
+
+	std::cout << "Hello\n" << std::endl;
+
+	if (!game.Run()) {
+		std::cerr << "***YUP something happened***" << std::endl;
+		return 1;
+	}
+
+	std::cout << "Aurevoir" << std::endl;
+
+	return 0;
 }

@@ -1,0 +1,32 @@
+#ifndef GAME_H
+#define GAME_H
+
+#include <list>
+
+class Game
+{
+
+private:
+
+	bool Running = true; 
+
+	void UpdatePlayer();
+
+	void GameOver();
+
+public: 
+
+	Game();
+	~Game();
+
+	bool Run();
+
+	void Initialize();
+	void Cleanup();
+	void ProcessEvents();
+	void Update();
+
+	void LoadMap(); 
+};
+
+#endif // !GAME_H

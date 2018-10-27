@@ -6,10 +6,15 @@
 
 enum class Noun
 {
+};
+
+enum class Direction
+{
 	NORTH,
 	EAST,
 	SOUTH,
-	WEST 
+	WEST,
+	COUNT
 };
 
 enum class Verb 

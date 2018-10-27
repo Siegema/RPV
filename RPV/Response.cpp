@@ -1,9 +1,12 @@
 #include "Response.h"
 #include <iostream>
 
-void Response::nptr()
+template <typename T>
+
+void Response::nptr(T obj)
 {
 	std::cout << "GO NORTH" << std::endl;
 }
+
 
 

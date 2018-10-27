@@ -1,13 +1,14 @@
 #include "InputHandler.h"
 #include <vector>
+#include <cctype>
 
 
-void InputHandler::HandleInput(std::istream& input)
+void InputHandler::HandleInput(std::istream& input, Game* game)
 { 
 	char commands[50];
 	input.getline(commands, 50);
 
-	std::string words = (std::string) commands;
+	std::string words = (std::string) commands; 
 
 	std::vector<std::string> data;
  
@@ -34,7 +35,7 @@ void InputHandler::HandleInput(std::istream& input)
 	{
 		if (mFunctions.find(s) != mFunctions.end())
 		{
-			mFunctions[s]();
+			mFunctions[s](game);
 		}
 	}
 }
