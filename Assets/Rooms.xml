@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<Rooms>
+<Room>
+  <Name>Room: Name</Name>
+  <Location></Location>
+  <Description>
+    Room Description
+  </Description>
+  <Items>
+      <Item>
+          <Name>Item: Name</Name>
+          <Damage>Item Damage 0</Damage>
+      </Item>
+  </Items>
+  <Enemies>
+      <Enemy>
+          <Name>Enemy: Name</Name>
+          <Health>Enemy: Health</Health>
+          <Damage>Enemy: Dmg</Damage>
+      </Enemy>
+  </Enemies>
+</Room>
+</Rooms>
