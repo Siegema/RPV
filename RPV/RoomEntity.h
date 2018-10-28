@@ -15,10 +15,12 @@ private:
 
 public:
 	//default
-	int dir[(int)Direction::COUNT] = {0, 0, 0, 0};
+	int dir[(int)Direction::COUNT];
 
 public:
 	RoomEntity();
+	RoomEntity(std::string name, std::string description,
+		int location, int directions[4]);
 	~RoomEntity();
 };
 

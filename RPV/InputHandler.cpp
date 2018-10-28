@@ -42,7 +42,9 @@ void InputHandler::HandleInput(std::istream& input, Game* game)
 
 InputHandler::InputHandler()
 {
-	mFunctions["NORTH"] = &nptr;
+	mFunctions["NORTH"] = &nPtr;
+	mFunctions["SOUTH"] = &sPtr;
+	mFunctions["EAST"] = &ePtr;
 }
 
 std::string trim(std::string)

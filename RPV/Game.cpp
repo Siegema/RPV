@@ -1,5 +1,7 @@
 #include "Game.h"
 
+using namespace tinyxml2;
+
 Game::Game()
 {
 }
@@ -35,9 +37,24 @@ void Game::Cleanup()
 
 void Game::Initialize()
 {
-	room = new RoomEntity();
+	//room = new RoomEntity();
 
+	XMLDocument* doc = new XMLDocument();
+	doc->LoadFile("../Assets/Rooms.xml"); 
+	if (doc->Error() != XML_SUCCESS)
+	{
+		std::cout << "Data File is Not Loaded" << std::endl; 
+		delete doc; 
+		return;
+	}
 
+	XMLNode *rootnode = doc->FirstChildElement("Rooms");
+
+	XMLElement *roomNode = rootnode->FirstChildElement("Room");
+	
+	rooms.push_back(LoadLevel(roomNode));
+
+	room = rooms[0];
 }
 
 void Game::ProcessEvents()
@@ -65,8 +82,25 @@ void Game::ChangeRoom(int roomID)
 	}
 }
 
-void Game::LoadLevels()
-{ 
+RoomEntity* Game::LoadLevel(XMLElement* roomNode)
+{
+	int id = roomNode->IntAttribute("id");
+	int north = roomNode->IntAttribute("n");
+	int east = roomNode->IntAttribute("e");
+	int west = roomNode->IntAttribute("w");
+	int south = roomNode->IntAttribute("s");
+	
+	XMLElement* nameNode = roomNode->FirstChildElement("Name");
+	std::string name = nameNode->GetText();
+	XMLElement* posNode = nameNode->NextSiblingElement("Location");
+	XMLElement* descNode = posNode->NextSiblingElement("Description");
+ 
+	int arr[4] = {north, east, west, south};
+
+	RoomEntity* r = new RoomEntity(name, name,
+		id, arr);
+
+	return r;
 }
 
 Game::~Game()

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <Rooms>
-  <Room n="-1" e="2" s="-1" w="-1">
+  <Room n="-1" e="2" s="-1" w="-1" id="0">
     <Name>Room: Name</Name>
     <Location></Location>
     <Description>

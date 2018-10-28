@@ -1,13 +1,14 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include<iostream>
-#include <list>
+#include <iostream>
+#include <vector>
 #include <string>
 #include "tinyxml2.h"
 #include "Command.h"
 #include "InputHandler.h"
 #include "RoomEntity.h"
+
 
 using namespace tinyxml2;
 
@@ -22,7 +23,9 @@ private:
 
 	//void GameOver();
 
-	RoomEntity* room;
+	RoomEntity* room; 
+
+	std::vector<RoomEntity *> rooms;
 
 public:
 	RoomEntity CurrentRoom;
@@ -39,10 +42,10 @@ public:
 	void ProcessEvents();
 	void Update();
 
-	RoomEntity getCurrRoom() const { return CurrentRoom; }
+	RoomEntity* getCurrRoom() const { return room; }
 
 	void ChangeRoom(int roomID);
-	void LoadLevels(); 
+	RoomEntity* LoadLevel(XMLElement* roomNode); 
 };
 
 #endif // !GAME_H

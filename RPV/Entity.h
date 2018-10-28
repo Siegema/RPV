@@ -12,6 +12,9 @@ private:
 public:
 	Entity();
 	~Entity();
+
+	void setID(int ID) { id = ID; }
+	void setDes(std::string DESC) { desc = DESC; }
 };
 
 #endif // !ENTITY_H
