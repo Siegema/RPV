@@ -2,20 +2,24 @@
 
 
 
-RoomEntity::RoomEntity()
-{
-}
-
-RoomEntity::RoomEntity(std::string name, std::string description, int location, int directions[4])
-	:location(location)
+RoomEntity::RoomEntity(std::string name, std::string description, int location, const int directions[4])
+	:Entity(name, location, description)
+	, location(location)
+	, dir{*directions}
 { 
-	//setDes(description);
-//	setID(location);
-	std::copy(directions, directions + 4, dir);
 }
 
 
 RoomEntity::~RoomEntity()
 {
+}
+
+void RoomEntity::LoadEnemy(XMLElement *enemyNode)
+{ 
+	if (enemyNode != nullptr)
+	{ 
+		//TODO: create Enemy
+	}
+	//else do nothing
 }
 

@@ -4,16 +4,17 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <vector>
 #include "Response.h"
 #include "Game.h"
 
 class Game;
-using namespace Response;
+
 
 class InputHandler
 {
 private:
-	typedef void(*mFuncPtr)(Game*);
+	typedef void(*mFuncPtr)(Game*, std::vector<std::string>);
 
 public:
 	inline static InputHandler& Instance()

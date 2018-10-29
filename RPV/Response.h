@@ -1,35 +1,28 @@
-#pragma once
-
+#ifndef RESPONSE_H
+#define RESPONSE_H
+ 
+#include <vector>
 #include <iostream>
+#include <string>
 #include "Game.h"
 
 class Game;
 
-namespace Response
-{
-	template <typename T> void nPtr(T *obj)
-	{ 
-		Game &g = *obj; 
-		g.ChangeRoom(g.getCurrRoom()->dir[(int)Direction::NORTH]); 
-	}
+	//North
+	void nPtr(Game *obj, std::vector<std::string> data);
 
-	template <typename T> void ePtr(T *obj)
-	{ 
-		Game &g = *obj; 
-		g.ChangeRoom(g.getCurrRoom()->dir[(int)Direction::EAST]); 
-	}
+	//East
+	void ePtr(Game *obj, std::vector<std::string> data);
 
-	template <typename T> void sPtr(T *obj)
-	{ 
-		Game &g = *obj; 
-		g.ChangeRoom(g.getCurrRoom()->dir[(int)Direction::SOUTH]); 
-	}
+	//South
+	void sPtr(Game *obj, std::vector<std::string> data);
 
+	//West
+	void wPtr(Game *obj, std::vector<std::string> data);
 
-//	template <typename T> void wPtr(T *obj)
-//	{ 
-//		Game &g = *obj; 
-//		g.ChangeRoom(g.getCurrRoom()->dir[(int)Direction::WEST]); 
-//	}
+	//Attack
+	void AttackPtr(Game *obj, std::vector<std::string> data);
 
-};
+	std::string nextWord(std::vector<std::string>* data);
+
+#endif // !RESPONSE_H

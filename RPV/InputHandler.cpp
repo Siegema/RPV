@@ -1,5 +1,4 @@
 #include "InputHandler.h"
-#include <vector>
 #include <cctype>
 
 
@@ -20,9 +19,10 @@ void InputHandler::HandleInput(std::istream& input, Game* game)
 			break;
 		}
 		words.erase(0, buffer);
+		buffer = 0;
 
 		auto wordEnd = (words.find_first_of(" ") < words.size())
-			? words.find_first_of(" ") : words.size();
+			? words.find_first_of(" ") - 1 : words.size();
 		auto range = wordEnd - buffer + 1;
 
 		std::string word = words.substr(buffer, range);
@@ -31,23 +31,22 @@ void InputHandler::HandleInput(std::istream& input, Game* game)
 		words.erase(buffer, range);
 	}
 
-	for (std::string s : data)
-	{
+	std::string s = data[0];
+	//for (std::string s : data)
+	//{
 		if (mFunctions.find(s) != mFunctions.end())
 		{
-			mFunctions[s](game);
+			data.erase(data.begin());
+			mFunctions[s](game, data);
 		}
-	}
+	//}
 }
 
 InputHandler::InputHandler()
 {
 	mFunctions["NORTH"] = &nPtr;
-	mFunctions["SOUTH"] = &sPtr;
 	mFunctions["EAST"] = &ePtr;
-}
-
-std::string trim(std::string)
-{ 
-	return "";
+	mFunctions["SOUTH"] = &sPtr;
+	mFunctions["WEST"] = &wPtr;
+	mFunctions["ATTACK"] = &AttackPtr;
 }

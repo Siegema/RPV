@@ -23,12 +23,10 @@ private:
 
 	//void GameOver();
 
-	RoomEntity* room; 
+	RoomEntity* room = nullptr; 
 
 	std::vector<RoomEntity *> rooms;
 
-public:
-	RoomEntity CurrentRoom;
 
 public: 
 

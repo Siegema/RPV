@@ -5,10 +5,10 @@ int main()
 	//InputHandler::Instance().HandleInput(std::cin);
 	Game game;
 
-	std::cout << "Hello\n" << std::endl;
+	std::cout << "RPV\n" << std::endl;
 
 	if (!game.Run()) {
-		std::cerr << "***YUP something happened***" << std::endl;
+		std::cerr << "***ERROR***" << std::endl;
 		return 1;
 	}
 

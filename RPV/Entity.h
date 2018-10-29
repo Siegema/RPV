@@ -5,16 +5,16 @@
 
 class Entity
 {
-private:
-	int id;
+private: 
+	const std::string name;
+	const int id; 
 	std::string desc; 
 
 public:
-	Entity();
+	Entity(std::string Name, int ID, std::string description);
 	~Entity();
 
-	void setID(int ID) { id = ID; }
-	void setDes(std::string DESC) { desc = DESC; }
+	std::string getName() const { return name; }
 };
 
 #endif // !ENTITY_H
