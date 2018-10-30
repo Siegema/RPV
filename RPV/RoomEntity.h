@@ -1,10 +1,13 @@
 #ifndef ROOMENTITY_H
 #define ROOMENTITY_H
 
+#include <list>
 #include "tinyxml2.h"
 #include "Entity.h"
 #include "EnemyEntity.h"
 #include "Command.h"
+#include "ItemEntity.h"
+#include <string>
 
 using namespace tinyxml2;
 
@@ -17,6 +20,8 @@ private:
 
 	EnemyEntity* enemy = new EnemyEntity{"name", 1, "default enemy", 100};
 
+	std::list<ItemEntity *> items;
+ 
 public:
 
 	//Holds location id [N,E,S,W]
@@ -30,6 +35,9 @@ public:
 	//void LoadItems(XMLElement itemRootNode);
 
 	EnemyEntity* getEnemy() const { return enemy; };
+
+	ItemEntity* getItem(std::string item) const;
+	void removeItem(std::string item);
 };
 
 #endif // !ROOMENTITY_H

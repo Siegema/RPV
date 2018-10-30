@@ -8,6 +8,7 @@
 #include "Command.h"
 #include "InputHandler.h"
 #include "RoomEntity.h"
+#include "Player.h"
 
 
 using namespace tinyxml2;
@@ -26,8 +27,8 @@ private:
 	RoomEntity* room = nullptr; 
 
 	std::vector<RoomEntity *> rooms;
-
-
+ 
+	Player* player = new Player();
 public: 
 
 	Game();
@@ -44,6 +45,8 @@ public:
 
 	void ChangeRoom(int roomID);
 	RoomEntity* LoadLevel(XMLElement* roomNode); 
+
+	Player* getPlayer() const { return player; };
 };
 
 #endif // !GAME_H

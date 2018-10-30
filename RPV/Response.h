@@ -25,4 +25,10 @@ class Game;
 
 	std::string nextWord(std::vector<std::string>* data);
 
+	//Display Items 
+	void Inventory(Game *game, std::vector<std::string> data);
+
+	//PickUp Item
+	void Take(Game *obj, std::vector<std::string> data);
+
 #endif // !RESPONSE_H

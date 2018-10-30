@@ -31,15 +31,20 @@ void InputHandler::HandleInput(std::istream& input, Game* game)
 		words.erase(buffer, range);
 	}
 
-	std::string s = data[0];
-	//for (std::string s : data)
-	//{
+	//only parse if something was typed
+	if (data.size() > 0)
+	{
+		std::string s = data[0];
 		if (mFunctions.find(s) != mFunctions.end())
 		{
 			data.erase(data.begin());
 			mFunctions[s](game, data);
 		}
-	//}
+	}
+	else
+	{ 
+		std::cout << "No commands have been entered" << std::endl;
+	}
 }
 
 InputHandler::InputHandler()
@@ -49,4 +54,6 @@ InputHandler::InputHandler()
 	mFunctions["SOUTH"] = &sPtr;
 	mFunctions["WEST"] = &wPtr;
 	mFunctions["ATTACK"] = &AttackPtr;
+	mFunctions["INVENTORY"] = &Inventory;
+	mFunctions["TAKE"] = &Take;
 }

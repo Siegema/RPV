@@ -30,8 +30,8 @@ void Game::Cleanup()
 { 
 	if (room != nullptr)
 	{ 
-		delete room;
-		room = nullptr;
+	//	delete room;
+	//	room = nullptr;
 	}
 }
 
